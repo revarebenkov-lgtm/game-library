@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Моя библиотека игр</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at top, #1a1a1a, #000000);
+    color: #ffffff;
+}
+
+header {
+    text-align: center;
+    padding: 24px;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.main {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.game-button {
+    background: #151515;
+    padding: 18px;
+    border-radius: 16px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.game-page {
+    display: none;
+}
+
+.back-btn {
+    background: #b00000;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.discs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+}
+
+.discs img {
+    width: 100%;
+    border-radius: 12px;
+    background: #111;
+}
+</style>
+</head>
+
+<body>
+
+<header>🎮 Моя библиотека игр</header>
+
+<div class="main">
+
+    <!-- КНОПКА ИГРЫ -->
+    <div class="game-button" onclick="openGame()">
+        Prototype
+    </div>
+
+    <!-- СТРАНИЦА ИГРЫ -->
+    <div class="game-page" id="gamePage">
+
+        <button class="back-btn" onclick="goBack()">← Назад</button>
+
+        <h1>Prototype</h1>
+        <p><b>Год выпуска:</b> 2012</p>
+
+        <p>
+            Здесь будет описание игры.
+        </p>
+
+        <h2>Диски</h2>
+        <div class="discs">
+            <img src="./images/discs/prototype_disc_1.png">
+            <img src="./images/discs/prototype_disc_2.png">
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function openGame() {
+    document.querySelector('.game-button').style.display = 'none';
+    document.getElementById('gamePage').style.display = 'block';
+}
+
+function goBack() {
+    document.getElementById('gamePage').style.display = 'none';
+    document.querySelector('.game-button').style.display = 'block';
+}
+</script>
+
+</body>
+</html>

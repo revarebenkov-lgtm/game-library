@@ -1,107 +1,109 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Моя библиотека игр</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Моя библиотека игр</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #1a1a1a, #000000);
-      color: #ffffff;
-    }
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at top, #1a1a1a, #000);
+    color: #fff;
+}
 
-    header {
-      text-align: center;
-      padding: 24px;
-      font-size: 26px;
-      font-weight: bold;
-    }
+header {
+    text-align: center;
+    padding: 30px;
+    font-size: 28px;
+    font-weight: bold;
+}
 
-    .main {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
+.main {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
 
-    .game-button {
-      background: #151515;
-      padding: 18px;
-      border-radius: 16px;
-      cursor: pointer;
-      margin-bottom: 20px;
-      transition: background 0.2s;
-    }
+.game-button {
+    background: #151515;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
 
-    .game-button:hover {
-      background: #222;
-    }
+.game-button:hover {
+    background: #222;
+}
 
-    .game-page {
-      display: none;
-    }
+.page {
+    display: none;
+}
 
-    .back-btn {
-      background: #800000;
-      color: white;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 10px;
-      cursor: pointer;
-      margin-bottom: 16px;
-    }
+.back {
+    background: #b00000;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
 
-    .discs {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 16px;
-      margin-top: 16px;
-    }
-
-    .discs img {
-      width: 100%;
-      border-radius: 12px;
-      background: #111;
-    }
-  </style>
+.game-img {
+    max-width: 300px;
+    border-radius: 12px;
+}
+</style>
 </head>
 
 <body>
 
-<header>🎮 Моя библиотека игр</header>
+<header>Моя библиотека игр</header>
 
-<div class="main" id="mainPage">
-  <div class="game-button" onclick="openGame()">
-    Prototype
-  </div>
+<div class="main">
+
+<!-- ГЛАВНАЯ -->
+<div id="home">
+    <div class="game-button" onclick="openPage('p1')">Prototype</div>
+    <div class="game-button" onclick="openPage('p2')">Prototype 2</div>
 </div>
 
-<div class="main game-page" id="gamePage">
-  <button class="back-btn" onclick="goBack()">← Назад</button>
+<!-- PROTOTYPE -->
+<div id="p1" class="page">
+    <button class="back" onclick="goHome()">← Назад</button>
+    <h1>Prototype</h1>
+    <p><b>Год выпуска:</b> 2012</p>
+    <p>Экшен с открытым миром и суперспособностями.</p>
+    <img class="game-img" src="images/prototype_disc_1.png">
+</div>
 
-  <h1>Prototype</h1>
-  <p><b>Год выпуска:</b> 2012</p>
-  <p>Экшен с открытым миром и суперспособностями.</p>
+<!-- PROTOTYPE 2 -->
+<div id="p2" class="page">
+    <button class="back" onclick="goHome()">← Назад</button>
+    <h1>Prototype 2</h1>
+    <p><b>Год выпуска:</b> 2012</p>
+    <p>Продолжение Prototype.</p>
+    <img class="game-img" src="images/prototype_disc_2.png">
+</div>
 
-  <h3>Диски</h3>
-  <div class="discs">
-    <img src="images/prototype_disc_1.png" alt="Prototype диск 1">
-    <img src="images/prototype_disc_2.png" alt="Prototype диск 2">
-  </div>
 </div>
 
 <script>
-  function openGame() {
-    document.getElementById("mainPage").style.display = "none";
-    document.getElementById("gamePage").style.display = "block";
-  }
+function openPage(id) {
+    document.getElementById('home').style.display = 'none';
+    document.getElementById(id).style.display = 'block';
+}
 
-  function goBack() {
-    document.getElementById("gamePage").style.display = "none";
-    document.getElementById("mainPage").style.display = "block";
-  }
+function goHome() {
+    document.getElementById('p1').style.display = 'none';
+    document.getElementById('p2').style.display = 'none';
+    document.getElementById('home').style.display = 'block';
+}
 </script>
 
 </body>

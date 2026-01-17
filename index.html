@@ -1,111 +1,107 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Моя библиотека игр</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Моя библиотека игр</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: radial-gradient(circle at top, #1a1a1a, #000000);
-    color: #ffffff;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #1a1a1a, #000000);
+      color: #ffffff;
+    }
 
-header {
-    text-align: center;
-    padding: 24px;
-    font-size: 26px;
-    font-weight: bold;
-}
+    header {
+      text-align: center;
+      padding: 24px;
+      font-size: 26px;
+      font-weight: bold;
+    }
 
-.main {
-    padding: 20px;
-    max-width: 900px;
-    margin: auto;
-}
+    .main {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
 
-.game-button {
-    background: #151515;
-    padding: 18px;
-    border-radius: 16px;
-    text-align: center;
-    cursor: pointer;
-    margin-bottom: 20px;
-}
+    .game-button {
+      background: #151515;
+      padding: 18px;
+      border-radius: 16px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      transition: background 0.2s;
+    }
 
-.game-page {
-    display: none;
-}
+    .game-button:hover {
+      background: #222;
+    }
 
-.back-btn {
-    background: #b00000;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-bottom: 20px;
-}
+    .game-page {
+      display: none;
+    }
 
-.discs {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 16px;
-}
+    .back-btn {
+      background: #800000;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-bottom: 16px;
+    }
 
-.discs img {
-    width: 100%;
-    border-radius: 12px;
-    background: #111;
-}
-</style>
+    .discs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .discs img {
+      width: 100%;
+      border-radius: 12px;
+      background: #111;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>🎮 Моя библиотека игр</header>
 
-<div class="main">
+<div class="main" id="mainPage">
+  <div class="game-button" onclick="openGame()">
+    Prototype
+  </div>
+</div>
 
-    <!-- КНОПКА ИГРЫ -->
-    <div class="game-button" onclick="openGame()">
-        Prototype
-    </div>
+<div class="main game-page" id="gamePage">
+  <button class="back-btn" onclick="goBack()">← Назад</button>
 
-    <!-- СТРАНИЦА ИГРЫ -->
-    <div class="game-page" id="gamePage">
+  <h1>Prototype</h1>
+  <p><b>Год выпуска:</b> 2012</p>
+  <p>Экшен с открытым миром и суперспособностями.</p>
 
-        <button class="back-btn" onclick="goBack()">← Назад</button>
-
-        <h1>Prototype</h1>
-        <p><b>Год выпуска:</b> 2012</p>
-
-        <p>
-            Здесь будет описание игры.
-        </p>
-
-        <h2>Диски</h2>
-        <div class="discs">
-            <img src="./images/discs/prototype_disc_1.png">
-            <img src="./images/discs/prototype_disc_2.png">
-        </div>
-
-    </div>
-
+  <h3>Диски</h3>
+  <div class="discs">
+    <img src="images/prototype_disc_1.png" alt="Prototype диск 1">
+    <img src="images/prototype_disc_2.png" alt="Prototype диск 2">
+  </div>
 </div>
 
 <script>
-function openGame() {
-    document.querySelector('.game-button').style.display = 'none';
-    document.getElementById('gamePage').style.display = 'block';
-}
+  function openGame() {
+    document.getElementById("mainPage").style.display = "none";
+    document.getElementById("gamePage").style.display = "block";
+  }
 
-function goBack() {
-    document.getElementById('gamePage').style.display = 'none';
-    document.querySelector('.game-button').style.display = 'block';
-}
+  function goBack() {
+    document.getElementById("gamePage").style.display = "none";
+    document.getElementById("mainPage").style.display = "block";
+  }
 </script>
 
 </body>

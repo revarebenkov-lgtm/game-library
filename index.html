@@ -1,136 +1,107 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Моя библиотека игр</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Моя библиотека игр</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: radial-gradient(circle at top, #1a1a1a, #000);
-  color: #fff;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: #ffffff;
+      text-align: center;
+    }
 
-header {
-  text-align: center;
-  padding: 24px;
-  font-size: 26px;
-  font-weight: bold;
-}
+    header {
+      padding: 20px;
+      font-size: 28px;
+      font-weight: bold;
+    }
 
-.main {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
-}
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-.game-button {
-  background: #151515;
-  padding: 18px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  cursor: pointer;
-  text-align: center;
-}
+    img {
+      width: 300px;
+      max-width: 90%;
+      margin-top: 20px;
+    }
 
-.game-page {
-  display: none;
-}
+    .section {
+      display: none;
+      padding: 20px;
+    }
 
-.back-btn {
-  background: #8b0000;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
-
-.audio-box {
-  margin-bottom: 20px;
-}
-
-.game-cover {
-  max-width: 300px;
-  border-radius: 12px;
-  display: block;
-  margin-bottom: 16px;
-}
-
-.description {
-  line-height: 1.6;
-}
-</style>
+    .audio-player {
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>Моя библиотека игр</header>
 
-<div class="main" id="home">
-
-  <div class="game-button" onclick="openPrototype1()">Prototype</div>
-  <div class="game-button" onclick="openPrototype2()">Prototype 2</div>
-
+<div id="home">
+  <button onclick="openPrototype1()">Prototype</button>
+  <button onclick="openPrototype2()">Prototype 2</button>
 </div>
 
-<!-- ================= PROTOTYPE 1 ================= -->
-<div class="main game-page" id="prototype1">
-  <button class="back-btn" onclick="goBack()">← Назад</button>
-
-  <h1>Prototype</h1>
-  <p><b>Год выпуска:</b> 2009</p>
-
-  <img src="images/prototype_disc_1.png" class="game-cover">
-
-  <div class="description">
-    Экшен с открытым миром и суперспособностями.
-  </div>
+<!-- PROTOTYPE 1 -->
+<div id="prototype1" class="section">
+  <button onclick="goBack()">← Назад</button>
+  <h2>Prototype</h2>
+  <p>Год выпуска: 2009</p>
+  <img src="images/prototype_disc_1.png">
 </div>
 
-<!-- ================= PROTOTYPE 2 ================= -->
-<div class="main game-page" id="prototype2">
-  <button class="back-btn" onclick="goBack()">← Назад</button>
+<!-- PROTOTYPE 2 -->
+<div id="prototype2" class="section">
+  <button onclick="goBack()">← Назад</button>
 
-  <h1>Prototype 2</h1>
-  <p><b>Год выпуска:</b> 2012</p>
+  <h2>Prototype 2</h2>
+  <p>Год выпуска: 2012</p>
 
-  <!-- 🎵 МУЗЫКА В САМОМ ВЕРХУ -->
-  <div class="audio-box">
+  <!-- МУЗЫКА ВВЕРХУ -->
+  <div class="audio-player">
     <audio controls>
-      <source src="images/audio/Scott Morgan - PROTOTYP_2_(SKYsounc).mp3" type="audio/mpeg">
-      Твой браузер не поддерживает аудио.
+      <source src="images/audio/Scott_Morgan_-_PROTOTYP_2_(SkySound.cc).mp3" type="audio/mpeg">
+      Ваш браузер не поддерживает аудио.
     </audio>
   </div>
 
-  <!-- 🖼️ ОДНА КАРТИНКА -->
-  <img src="images/prototype_disc_2.png" class="game-cover">
+  <!-- ОДНА КАРТИНКА -->
+  <img src="images/prototype_disc_2.png">
 
-  <!-- 📝 ОПИСАНИЕ ПОД КАРТИНКОЙ -->
-  <div class="description">
-    Продолжение Prototype с новым героем, улучшенным боем и более мрачной историей.
-  </div>
+  <p>
+    Жанр: Экшен<br>
+    Статус: пройдено<br>
+    Оценка: 9 / 10
+  </p>
 </div>
 
 <script>
-function openPrototype1() {
-  document.getElementById("home").style.display = "none";
-  document.getElementById("prototype1").style.display = "block";
-}
+  function openPrototype1() {
+    document.getElementById("home").style.display = "none";
+    document.getElementById("prototype1").style.display = "block";
+  }
 
-function openPrototype2() {
-  document.getElementById("home").style.display = "none";
-  document.getElementById("prototype2").style.display = "block";
-}
+  function openPrototype2() {
+    document.getElementById("home").style.display = "none";
+    document.getElementById("prototype2").style.display = "block";
+  }
 
-function goBack() {
-  document.getElementById("prototype1").style.display = "none";
-  document.getElementById("prototype2").style.display = "none";
-  document.getElementById("home").style.display = "block";
-}
+  function goBack() {
+    document.getElementById("prototype1").style.display = "none";
+    document.getElementById("prototype2").style.display = "none";
+    document.getElementById("home").style.display = "block";
+  }
 </script>
 
 </body>

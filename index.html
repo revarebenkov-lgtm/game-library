@@ -2,105 +2,92 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Моя библиотека игр</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Моя библиотека игр</title>
 
 <style>
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #0b0b0b;
-    color: white;
+    background: #0f0f0f;
+    color: #fff;
 }
 
 /* ===== ГЛАВНАЯ СТРАНИЦА ===== */
 #home {
-    padding: 40px;
+    padding: 30px;
 }
 
-.grid {
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Сетка как в GeForce NOW */
+.game-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
 }
 
-.card {
+.game-card {
     position: relative;
-    overflow: hidden;
-    border-radius: 14px;
     cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
 }
 
-.card img {
+.game-card img {
     width: 100%;
-    height: 360px;
-    object-fit: cover;
-    transition: transform 0.4s ease, filter 0.4s ease;
+    display: block;
+    transition: transform 0.3s, filter 0.3s;
 }
 
-.card:hover img {
+.game-card:hover img {
     transform: scale(1.08);
-    filter: brightness(55%);
+    filter: brightness(0.4);
 }
 
-.card .overlay {
+.game-card span {
     position: absolute;
     inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 18px;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s;
 }
 
-.card:hover .overlay {
+.game-card:hover span {
     opacity: 1;
 }
 
-/* ===== СТРАНИЦА ИГРЫ ===== */
-.game-page {
+/* ===== СТРАНИЦЫ ИГР ===== */
+.page {
     display: none;
-    padding: 40px;
+    padding: 30px;
+    max-width: 800px;
 }
 
 .back {
-    margin-bottom: 20px;
-    color: #aaa;
     cursor: pointer;
-}
-
-.audio-player {
-    margin-bottom: 30px;
-}
-
-.game-title {
-    font-size: 42px;
-    margin-bottom: 10px;
-}
-
-.game-year {
     color: #aaa;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    display: inline-block;
 }
 
-.images-row {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
+.back:hover {
+    color: #fff;
 }
 
-.images-row img {
-    width: 280px;
-    border-radius: 12px;
+.info p {
+    margin: 8px 0;
+    color: #ccc;
 }
 
-.description {
-    max-width: 800px;
-    line-height: 1.6;
-    color: #ddd;
+audio {
+    margin-top: 20px;
+    width: 100%;
 }
 </style>
 </head>
@@ -109,59 +96,62 @@ body {
 
 <!-- ===== ГЛАВНАЯ ===== -->
 <div id="home">
-    <div class="grid">
+    <h1>Моя библиотека игр</h1>
 
-        <div class="card" onclick="openPrototype1()">
+    <div class="game-grid">
+        <div class="game-card" onclick="openPage('p1')">
             <img src="images/prototype_disc_1.png">
-            <div class="overlay">Войти</div>
+            <span>Войти</span>
         </div>
 
-        <div class="card" onclick="openPrototype2()">
+        <div class="game-card" onclick="openPage('p2')">
             <img src="images/prototype_disc_2.png">
-            <div class="overlay">Войти</div>
+            <span>Войти</span>
         </div>
+    </div>
+</div>
 
+<!-- ===== PROTOTYPE 1 ===== -->
+<div id="p1" class="page">
+    <div class="back" onclick="goHome()">← Назад</div>
+
+    <h1>Prototype</h1>
+
+    <div class="info">
+        <p><b>Год выпуска:</b> 2009</p>
+        <p><b>Жанр:</b> Экшен, Open World</p>
+        <p><b>Описание:</b>  
+        Игра про Алекса Мерсера, человека с суперспособностями, который пытается раскрыть тайну своего происхождения в заражённом Нью-Йорке.</p>
     </div>
 </div>
 
 <!-- ===== PROTOTYPE 2 ===== -->
-<div id="prototype2" class="game-page">
-
+<div id="p2" class="page">
     <div class="back" onclick="goHome()">← Назад</div>
 
-    <div class="audio-player">
-        <audio controls>
-            <source src="images/audio/Scott_Morgan_-_PROTOTYP_2_(SkySound.cc).mp3" type="audio/mpeg">
-        </audio>
+    <h1>Prototype 2</h1>
+
+    <div class="info">
+        <p><b>Год выпуска:</b> 2012</p>
+        <p><b>Жанр:</b> Экшен, Open World</p>
+        <p><b>Описание:</b>  
+        Продолжение Prototype. Новый главный герой — Джеймс Хеллер, который охотится на Алекса Мерсера и стремится отомстить за свою семью.</p>
     </div>
 
-    <div class="game-title">Prototype 2</div>
-    <div class="game-year">Год выпуска: 2012</div>
-
-    <div class="images-row">
-        <img src="images/prototype_disc_1.png">
-        <img src="images/prototype_disc_2.png">
-    </div>
-
-    <div class="description">
-        Prototype 2 — экшен с открытым миром, где игрок управляет Джеймсом Хеллером,
-        обладающим разрушительными биологическими способностями.
-    </div>
-
+    <audio controls>
+        <source src="images/audio/Scott_Morgan_-_PROTOTYP_2_(SkySound.cc).mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио.
+    </audio>
 </div>
 
 <script>
-function openPrototype1() {
-    alert("Prototype 1 — добавим позже 😉");
-}
-
-function openPrototype2() {
+function openPage(id) {
     document.getElementById("home").style.display = "none";
-    document.getElementById("prototype2").style.display = "block";
+    document.getElementById(id).style.display = "block";
 }
 
 function goHome() {
-    document.getElementById("prototype2").style.display = "none";
+    document.querySelectorAll(".page").forEach(p => p.style.display = "none");
     document.getElementById("home").style.display = "block";
 }
 </script>
